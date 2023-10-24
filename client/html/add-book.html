@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Add Book</title>
+</head>
+<body>
+    <header>
+        <a href="../index.html" class="logo">Book Catalog</a>
+    </header>
+    <div class="container">
+        <div class="books">
+            <div class="link-book">
+                <h3 class="book-info">Add Book Information</h3>
+            </div>
+            <div class="line"></div>
+            <div class="book-form">
+                <div>
+                    <form id="add-book-form">
+                        <label>Title</label><br>
+                        <input type="text" name="title" id="title" placeholder="Title"><br>
+                        <label>Author</label><br>
+                        <input type="text" name="author" id="author" placeholder="Author"><br>
+                        <label>Cover Image (link)</label><br>
+                        <input type="text" name="cover-image" id="cover-image" placeholder="Cover Image"><br>
+                        <label>Category</label><br>
+                        <select id="category" name="category">
+                        </select><br>
+                        <label>Abstract</label><br>
+                        <textarea id="abstract" name="abstract" placeholder="Write something.." style="height:200px">
+                        </textarea><br>
+
+                        <input type="submit" id="add-book-btn" value="Add Book">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../js/add-book.js"></script>
+</body>
+</html>
