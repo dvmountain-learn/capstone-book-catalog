@@ -22,6 +22,7 @@ const {
 = require('./controller.js')
 
 app.post(`/api/seed`, seed)
+// seed()
 
 app.get(`/api/categories`, getCategories)
 app.get(`/api/books`, getBooks)

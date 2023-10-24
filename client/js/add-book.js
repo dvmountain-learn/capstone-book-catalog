@@ -31,7 +31,7 @@ function getCategories() {
 }
 
 function addBook(event) {
-    event.preventDefault();
+    event.preventDefault()
     if (titleText.value === '') {
         alert('Please enter a title')
     } else if (authorText.value === '') {
@@ -41,7 +41,7 @@ function addBook(event) {
     } else if (abstractText.value === '') {
         alert('Please enter a abstract')
     } else {
-        let currentDate = new Date().toJSON().slice(0, 10);
+        let currentDate = new Date().toJSON()
         const bookObj = {
             title: titleText.value,
             author: authorText.value,
@@ -60,7 +60,6 @@ function addBook(event) {
                 console.log(error)
             });
     }
-    
 }
 
 function clearForm() {
