@@ -120,8 +120,16 @@ a:hover {
     cursor: pointer; 
 }
 
-.cover-image {
+a.book-link-image {
+    transition: .3s;
+}
+
+a.book-link-image .cover-image {
     width: 100%;
+}
+
+a:hover.book-link-image .cover-image {
+    transform: scale(1.05);
 }
 
 .title {
@@ -151,8 +159,24 @@ a:hover {
     margin: 10px;
 }
 
+.item {
+    flex: 0 1 calc(100% - 1em);
+    box-sizing: border-box;
+    border: solid var(--bg-color) .5px;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 10px 0;
+    margin-bottom: 10px;
+}
 
-@media screen and (min-width: 40em) {
+.book-column {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, auto));
+    grid-gap: 2rem;
+    margin-top: 5rem;
+}
+
+@media screen and (min-width: 600px) {
     .book-list {
         display: flex;
         flex-wrap: wrap;
@@ -162,12 +186,6 @@ a:hover {
     }
 
     .item {
-        flex: 0 1 calc(50% - 1em);
-    }
-}
-
-@media screen and (min-width: 60em) {
-    .item {
         flex: 0 1 calc(20% - 1em);
         box-sizing: border-box;
         border: solid var(--bg-color) .5px;
@@ -175,6 +193,14 @@ a:hover {
         border-radius: 5px;
         margin: 10px 0;
         margin-bottom: 10px;
+    }
+
+    .side-image {
+        width: 100%;
+    }
+
+    .side-info {
+        width: 100%;
     }
 }
 
@@ -209,16 +235,61 @@ input[type=text], select, textarea {
 }
   
 input[type=submit] {
-    background-color: var(--bg-color);
     color: white;
     padding: 12px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 150px;
+    transition: .3s ease-out;
+    background: var(--button-color);
+    box-shadow: inset 0 0 0 0 var(--bg-color);
 }
   
-/* input[type=submit]:hover {
-    background-color: #45a049;
-    transition: ease 0.4s;
-} */
+input[type=submit]:hover {
+    background: var(--button-color);
+    box-shadow: inset 150px 0 0 0 var(--bg-color);
+}
+
+/* Book Detail */
+.side-image {
+    width: 25%;
+    height: 100%;
+    margin-top: 30px;
+    border-radius: 10px;
+    float: left;
+}
+
+.side-info {
+    width: 70%;
+    height: 100%;
+    margin-top: 25px;
+    border-radius: 10px;
+    margin-left: 5%;
+    float: left;
+}
+
+.detail-image {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.detail-title {
+    font-size: 40px;
+    margin-left: 10px;
+}
+
+.detail-category {
+    color: var(--blue-color);
+    font-weight: 300;
+    font-style: italic;
+    font-size: 25px;
+    margin: 10px;
+}
+
+.detail-abstract {
+    font-size: 20px;
+    margin-left: 10px;
+    font-weight: 200;
+}
+

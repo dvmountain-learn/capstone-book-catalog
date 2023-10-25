@@ -15,6 +15,7 @@ const {
     seed,
     getCategories,
     getBooks,
+    getBookById,
     createBook,
     updateBook,
     deleteBook,
@@ -26,6 +27,7 @@ app.post(`/api/seed`, seed)
 
 app.get(`/api/categories`, getCategories)
 app.get(`/api/books`, getBooks)
+app.get(`/api/books/:id`, getBookById)
 app.post(`/api/books/add`, createBook)
 app.put(`/api/books/update/:id`, updateBook)
 app.delete(`/api/books/delete/:id`, deleteBook)

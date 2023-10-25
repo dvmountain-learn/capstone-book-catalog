@@ -19,6 +19,7 @@
             <div class="book-form">
                 <div>
                     <form id="add-book-form">
+                        <input type="text" id="book_id" hidden>
                         <label>Title</label><br>
                         <input type="text" name="title" id="title" placeholder="Title"><br>
                         <label>Author</label><br>
@@ -33,12 +34,14 @@
                         </textarea><br>
 
                         <input type="submit" id="add-book-btn" value="Add Book">
+                        <input type="submit" id="update-book-btn" value="Update Book">
                     </form>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../js/add-book.js"></script>
+    <script src="../js/book-form.js"></script>
 </body>
 </html>

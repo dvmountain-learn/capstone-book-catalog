@@ -18,9 +18,11 @@ function bookCard(book) {
     div.innerHTML = `
         <div class="action-list">
             <div class="action"><button class="btn-delete" onclick="deleteBook(${book.id})"><i class="fa fa-trash"></i></button></div>
-            <div class="action"><button class="btn-edit"><i class="fa fa-edit"></i></button></div>
+            <div class="action"><button class="btn-edit" onclick="editBook(${book.id})"><i class="fa fa-edit"></i></button></div>
         </div>
-        <img class="cover-image" src="${book.cover_image}" alt="${book.title}">
+        <a class="book-link-image" href="../client/html/book-detail.html?id=${book.id}">
+            <img class="cover-image" src="${book.cover_image}" alt="${book.title}">
+        </a>
         <h3 class="title">${book.title}</h3>
         <div class="category">
             <span> 
@@ -43,26 +45,70 @@ function getBooks() {
             displayBooks(res.data)
         })
         .catch((error) => {
-            console.log(error);
-        })
+            console.log(error.message)
+        });
+}
+
+// Looking for book by id to edit from the database
+function editBook(bookId) {
+    console.log(bookId)
+    window.location.href = `../client/html/book-form.html?id=${bookId}`
 }
 
 // Looking for book by id to delete from the database
-function deleteBook(id) {
-    const isConfirmed = confirm('Are you sure you want to delete this book?')
-    if (isConfirmed) {
-        console.log(id)
-        axios.delete(`${baseUrl}/api/books/delete/${id}`)
+function deleteBook(bookId) {
+    // const isConfirmed = confirm('Are you sure you want to delete this book?')
+    // if (isConfirmed) {
+    //     console.log(bookId)
+    //     axios.delete(`${baseUrl}/api/books/delete/${bookId}`)
+    //         .then((res) => {
+    //             getBooks()
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.message);
+    //         })
+    // }
+
+    Swal.fire({
+        title: "Delete",
+        text: "Are you sure you want to delete this book?",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: 'red',
+        confirmButtonText: 'Yes',
+        cancelButtonText: "No"
+     }).then((result) => {
+        if (result.isConfirmed) {
+            axios.delete(`${baseUrl}/api/books/delete/${bookId}`)
             .then((res) => {
-                getBooks()
+                Swal.fire({
+                    title: 'Delete',
+                    text: `Your book has been deleted with id: ${bookId} success.`,
+                    showConfirmButton: false,
+                    icon: 'success',
+                    timer: 1000
+                }).then(() => {
+                    getBooks()
+                });
             })
             .catch((error) => {
-                console.log(error);
+                console.log(error.message);
             })
-    }
+        } 
+      });
+     
+     
 }
 
 // Loading DOM in javascript
-
 getBooks()
+
+// Swal.fire({
+//     title: 'Auto close alert!',
+//     text: 'I will close in 2 seconds.',
+//     timer: 1000
+//   }).then(function() {
+    
+//   })
+
 

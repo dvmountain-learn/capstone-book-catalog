@@ -118,6 +118,23 @@ module.exports = {
         })
     },
 
+    getBookById: (req, res) => {
+        const { id } = req.params
+        sequelize.query(`
+            SELECT b.*, c.name FROM books b
+            JOIN categories c ON b.category_id = c.id
+            WHERE b.id = ${id}
+            ORDER BY added_date DESC;
+        `)
+        .then((dbResult) => {
+            res.status(200).send(dbResult[0][0])
+        })
+        .catch((error) => {
+            console.log(`Could not load data from database ${error}`)
+            res.status(400).send(error)
+        })
+    },
+
     createBook: (req, res) => {
         console.log(req.body)
         const {title, category_id, author, cover_image, abstract, added_date} = req.body
@@ -136,9 +153,14 @@ module.exports = {
     },
 
     updateBook: (req, res) => {
+        const { id } = req.params
+        const {title, category_id, author, cover_image, abstract} = req.body
         console.log(req.body)
         sequelize.query(`
-        
+            UPDATE books SET title = '${title}',
+            author = '${author}', cover_image = '${cover_image}',
+            category_id = ${Number(category_id)}, abstract = '${abstract}' 
+            WHERE id = ${id}
         `)
         .then((dbResult) => {
             res.status(200).send(dbResult[0])
