@@ -7,7 +7,8 @@
   
 ## Overview of the App:
 
-The Book Catalog App is a web-based application designed to help users manage and organize their collection of books. The app allows users to perform the following tasks:
+The Book Catalog App is a web-based application designed to help users manage and organize their collection of books. 
+The app allows users to perform the following tasks:
 
     1) Add Books: Users can add new books to the catalog by providing details such as book title, author, category, image, and abstract.
 
