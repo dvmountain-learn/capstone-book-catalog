@@ -212,7 +212,7 @@ a.book-link-image .cover-image {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    object-fit: cover; 
+    object-fit: fill; 
 }
 
 a:hover.book-link-image .cover-image {
