@@ -1,5 +1,7 @@
 
 const bookList = document.querySelector('.book-list');
+const searching = document.querySelector('#searching')
+const loader = document.querySelector("#loading")
 
 const baseUrl = 'http://localhost:4000'
 
@@ -28,21 +30,34 @@ function bookCard(book) {
             <span> 
                 <i class="fa fa-tag"></i> ${book.name}
             </span> 
-            <span>
-                <i class="fa fa-user"></i> ${book.author}
-            </span>
         </div>
         <p class="abstract">${book.abstract}</p>
     `
     bookList.appendChild(div)
 }
 
+// Showing loading
+function showLoading() {
+    loader.classList.add("display");
+    // to stop loading after some time
+    setTimeout(() => {
+        loader.classList.remove("display");
+    }, 5000);
+}
+
+// Hiding loading 
+function hideLoading() {
+    loader.classList.remove("display");
+}
+
 // Fetch all books from the database
 function getBooks() {
+    showLoading()
     axios.get(`${baseUrl}/api/books`)
         .then((res) => {
+            hideLoading()
             const books = res.data
-            displayBooks(res.data)
+            displayBooks(books)
         })
         .catch((error) => {
             console.log(error.message)
@@ -57,18 +72,6 @@ function editBook(bookId) {
 
 // Looking for book by id to delete from the database
 function deleteBook(bookId) {
-    // const isConfirmed = confirm('Are you sure you want to delete this book?')
-    // if (isConfirmed) {
-    //     console.log(bookId)
-    //     axios.delete(`${baseUrl}/api/books/delete/${bookId}`)
-    //         .then((res) => {
-    //             getBooks()
-    //         })
-    //         .catch((error) => {
-    //             console.log(error.message);
-    //         })
-    // }
-
     Swal.fire({
         title: "Delete",
         text: "Are you sure you want to delete this book?",
@@ -96,19 +99,27 @@ function deleteBook(bookId) {
             })
         } 
       });
-     
-     
 }
+
+// Search book from database
+searching.addEventListener('keyup', (e) => {
+    console.log(searching.value)
+    const searchQuery = searching.value.toLowerCase()
+    if (searchQuery !== '') {
+        axios.get(`${baseUrl}/api/books/search/${searchQuery}`)
+        .then((res) => {
+            const books = res.data
+            displayBooks(books)
+        })
+        .catch((error) => {
+            console.log(error.message)
+        });
+    } else {
+        getBooks()
+    }
+});
 
 // Loading DOM in javascript
 getBooks()
-
-// Swal.fire({
-//     title: 'Auto close alert!',
-//     text: 'I will close in 2 seconds.',
-//     timer: 1000
-//   }).then(function() {
-    
-//   })
 
 

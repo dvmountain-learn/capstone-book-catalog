@@ -56,7 +56,7 @@ module.exports = {
             VALUES
             (8, 'The Hunger Games', 'Suzanne Collins', 'https://images-na.ssl-images-amazon.com/images/P/0439023483.01._SX540_SCLZZZZZZZ_.jpg', 'In a future North America, where the rulers of Panem maintain control through an annual televised survival competition pitting young people from each of the twelve districts against one another, sixteen-year-old Katniss is skills are put to the test when she voluntarily takes her younger sister.', '2017-03-14T23:12:33.090Z'),
             (20, 'Mockingjay', 'Suzanne Collins', 'https://images-na.ssl-images-amazon.com/images/P/0545663261.01._SX360_SCLZZZZZZZ_.jpg', 'Katniss Everdeen is having survived the Hunger games twice makes her a target of the Capitol and President Snow, as well as a hero to the rebels who will succeed only if Katniss is willing to put aside her personal feelings and serve as their pawn.', '2017-01-14T23:12:33.090Z'),
-            (3, 'A Game of Thrones', 'George R. R. Martin', '', 'Winter is coming. Such is the stern motto of House Stark, the northernmost of the fiefdoms that owe allegiance to King Robert Baratheon in far-off King�??s Landing. There Eddard Stark of Winterfell rules in Robert�??s name. There his family dwells in peace and comfort: his proud wife, Catelyn; his sons Robb, Brandon, and Rickon; his daughters Sansa and Arya; and his bastard son, Jon Snow. Far to the north, behind the towering Wall, lie savage Wildings and worse�??unnatural things relegated to myth during the centuries-long summer, but proving all too real and all too deadly in the turning of the season.', '2013-09-21T23:12:33.090Z'),
+            (3, 'A Game of Thrones', 'George R. R. Martin', 'https://images-na.ssl-images-amazon.com/images/P/0553573403.01._SX360_SCLZZZZZZZ_.jpg', 'Winter is coming. Such is the stern motto of House Stark, the northernmost of the fiefdoms that owe allegiance to King Robert Baratheon in far-off King�??s Landing. There Eddard Stark of Winterfell rules in Robert�??s name. There his family dwells in peace and comfort: his proud wife, Catelyn; his sons Robb, Brandon, and Rickon; his daughters Sansa and Arya; and his bastard son, Jon Snow. Far to the north, behind the towering Wall, lie savage Wildings and worse�??unnatural things relegated to myth during the centuries-long summer, but proving all too real and all too deadly in the turning of the season.', '2013-09-21T23:12:33.090Z'),
             (15, 'A Clash of Kings', 'George R. R. Martin', 'https://images-na.ssl-images-amazon.com/images/P/0141439475.01._SX540_SCLZZZZZZZ_.jpg', 'Gertrude Stein and Alice B. Toklas, Abraham Stoker, Lewis Carroll, Herman Melville, JeffBuckley, C. S. Lewis, Charles Lamb, Carl Sandburg, Karen Blixen, Sir Walter Scott', '2012-03-14T23:12:33.090Z'),
             (8, 'Dracula', 'Bram Stoker', '	https://images-na.ssl-images-amazon.com/images/P/014143984X.01._SX360_SCLZZZZZZZ_.jpg', 'Having deduced the double identity of Count Dracula, a wealthy Transylvanian nobleman, a small group of people vow to rid the world of the evil vampire.', '2017-09-11T23:12:33.090Z'),
             (10, 'The War of the Worlds', 'H. G. Wells', '	https://images-na.ssl-images-amazon.com/images/P/0375759239.01._SX360_SCLZZZZZZZ_.jpg', 'As life on Mars becomes impossible, Martians and their terrifying machines invade the earth.', '2020-07-24T23:12:33.090Z'),
@@ -128,6 +128,23 @@ module.exports = {
         `)
         .then((dbResult) => {
             res.status(200).send(dbResult[0][0])
+        })
+        .catch((error) => {
+            console.log(`Could not load data from database ${error}`)
+            res.status(400).send(error)
+        })
+    },
+
+    searchBookByTitle: (req, res) => {
+        const { query } = req.params
+        sequelize. query(`
+            SELECT b.*, c.name FROM books b
+            JOIN categories c ON b.category_id = c.id
+            WHERE LOWER(title) LIKE '%${query}%'
+            ORDER BY added_date DESC;
+        `)
+        .then((dbResult) => {
+            res.status(200).send(dbResult[0])
         })
         .catch((error) => {
             console.log(`Could not load data from database ${error}`)

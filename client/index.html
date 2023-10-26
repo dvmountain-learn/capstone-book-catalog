@@ -5,7 +5,6 @@
     <title>Book Catalog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cantarell&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;1,300;1,500&display=swap">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -15,11 +14,24 @@
     <div class="container">
         <div class="books">
             <div class="link-book">
-                <a href="../client/html/book-form.html" class="link-add-book">+ Add Book</a>
+                <div class="action-book-head">
+                    <div class="book-head-link">
+                        <a href="../client/html/book-form.html" class="link-add-book"><i class="fa fa-plus"></i> Add Book</a>
+                    </div>
+                    <div class="book-head-link">
+                        <form class="search-form">
+                            <input id="searching" type="text" placeholder="Search" aria-label="Search">
+                        </form>
+                    </div>
+                </div>
+                
             </div>
             <div class="line"></div>
-            <div class="book-list"></div>
+            <div class="book-list">
+            </div>
+            <br>
         </div>
+        <div id="loading"></div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>

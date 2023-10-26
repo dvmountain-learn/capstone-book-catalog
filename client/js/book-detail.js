@@ -3,6 +3,10 @@ const bookContainer = document.querySelector('.container')
 const baseUrl = 'http://localhost:4000'
 
 function renderBookCard(book) {
+
+    const dateSet = new Date(book.added_date);
+    const formatDate = dateSet.toDateString();
+    
     const div = document.createElement('div')
     div.classList.add('books')
     div.innerHTML = `
@@ -11,6 +15,11 @@ function renderBookCard(book) {
         </div>
         <div class="side-info">
             <h3 class="detail-title">${book.title}</h3>
+            <div class="detail-added">
+                <span>
+                    <i class="fa fa-clock-o"></i> ${formatDate}
+                </span>
+            </div>
             <div class="detail-category">
                 <span> 
                     <i class="fa fa-tag"></i> ${book.name}
@@ -19,7 +28,7 @@ function renderBookCard(book) {
                     <i class="fa fa-user"></i> ${book.author}
                 </span>
             </div>
-            <p class="detail-abstract">${book.abstract}</p>
+            <pre class="detail-abstract">${book.abstract}</pre>
         </div>
     `
     bookContainer.appendChild(div)

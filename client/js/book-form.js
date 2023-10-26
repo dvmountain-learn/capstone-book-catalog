@@ -12,9 +12,9 @@ const bookInfo = document.querySelector('.book-info')
 // Define default category id when try to update book information
 let categoryId = 0
 
-
 const baseUrl = `http://localhost:4000`
 
+// Convert string to capitalized by word
 function capitalizeWords(strangeWords) {
     const words = strangeWords.split(" ")
     for (let i = 0; i < words.length; i++) {
@@ -23,6 +23,7 @@ function capitalizeWords(strangeWords) {
     return words.join(" ")   
 }
 
+// Loading categories filter by category id
 function getCategories() {
     axios.get(`${baseUrl}/api/categories`)
         .then(res => {
@@ -45,6 +46,7 @@ function getCategories() {
         });
 }
 
+// Clear form controls
 function clearForm() {
     bookId.value = ''
     titleText.value = ''
@@ -54,6 +56,7 @@ function clearForm() {
     abstractText.value = ''
 }
 
+// Create book information
 function addBook(event) {
     event.preventDefault()
     if (titleText.value === '') {
@@ -67,11 +70,11 @@ function addBook(event) {
     } else {
         let currentDate = new Date().toJSON()
         const bookObj = {
-            title: titleText.value,
-            author: authorText.value,
+            title: titleText.value.replace(/'/g, '"'),
+            author: authorText.value.replace(/'/g, '"'),
             cover_image: coverImageText.value,
             category_id: categorySelect.value,
-            abstract: abstractText.value,
+            abstract: abstractText.value.replace(/'/g, '"'),
             added_date: currentDate
         }
         console.log(bookObj)
@@ -97,6 +100,7 @@ function addBook(event) {
 // Calling button add book 
 addBookBtn.addEventListener('click', addBook)
 
+// Update book information
 function updateBook(event) {
     event.preventDefault()
     if (titleText.value === '') {
@@ -109,11 +113,11 @@ function updateBook(event) {
         alert('Please enter a abstract')
     } else {
         const bookObj = {
-            title: titleText.value,
-            author: authorText.value,
+            title: titleText.value.replace(/'/g, '"'),
+            author: authorText.value.replace(/'/g, '"'),
             cover_image: coverImageText.value,
             category_id: categorySelect.value,
-            abstract: abstractText.value
+            abstract: abstractText.value.replace(/'/g, '"')
         }
         console.log(bookObj, bookId.value)
         axios.put(`${baseUrl}/api/books/update/${bookId.value}`, bookObj)
@@ -167,4 +171,5 @@ function getBookById() {
 }
 
 abstractText.value = ''
+// Loading book by id 
 getBookById()

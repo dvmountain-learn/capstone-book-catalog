@@ -19,6 +19,7 @@ const {
     createBook,
     updateBook,
     deleteBook,
+    searchBookByTitle,
 } 
 = require('./controller.js')
 
@@ -31,6 +32,7 @@ app.get(`/api/books/:id`, getBookById)
 app.post(`/api/books/add`, createBook)
 app.put(`/api/books/update/:id`, updateBook)
 app.delete(`/api/books/delete/:id`, deleteBook)
+app.get(`/api/books/search/:query`, searchBookByTitle)
 
 app.listen(SERVER_PORT, () => {
     console.log('Server listening on port: ' + SERVER_PORT)
