@@ -1,4 +1,11 @@
-*** Overview of the App:
+# Capstone: The Book Catalog App
+
+## Table of contents
+* [Overview](#overview)
+* [Key Features and Components](#featureandcomponent)
+
+  
+## Overview of the App:
 
 The Book Catalog App is a web-based application designed to help users manage and organize their collection of books. The app allows users to perform the following tasks:
 
@@ -10,7 +17,7 @@ The Book Catalog App is a web-based application designed to help users manage an
 
     4) Search Books: The app provides a search functionality that allows users to search for books by title. This feature simplifies the process of finding specific books in a large collection.
 
-*** Key Features and Components:
+## Key Features and Components:
 
 The Book Catalog App is built using HTML/CSS for the user interface or animation and javascript uses library axios to talk with a server. I'm also using Node to create the back-end and use Postgres for database management. Some of the key features and components of the app include:
 
