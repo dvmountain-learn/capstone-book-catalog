@@ -1,9 +1,12 @@
 # Capstone: The Book Catalog App
+The “Book Catalog” is designed to “help users manage and organize their collection of books”.
 
 ## Table of contents
 * [Overview](#overview)
 * [Key Features and Components](#featureandcomponent)
-
+* [Technologies](#technologies)
+* [Installation](#installation)
+* [Screenshot](#screenshot)
   
 ## Overview of the App:
 
@@ -29,5 +32,47 @@ The Book Catalog App is built using HTML/CSS for the user interface or animation
     3) Add and Update Forms: Users can interact with the app through forms that allow them to add new books and update existing book details.
 
     4) Search Functionality: The search box enables users to search for books based on their titles. As users type in the search query, the app dynamically sends a request to the server by filtering the displayed books.
-    
 
+## Technologies
+- HTML
+- CSS
+- Javascript
+- Google Font
+- Font Awesome
+- Node 
+- Postgres
+
+# Installation
+
+#### Clone the code
+```sh
+$ https://github.com/dvmountain-learn/capstone-book-catalog.git
+$ cd capstone-book-catalog
+```
+
+#### Install modules
+```sh
+$ npm install
+```
+
+### Preparation Before Run Server 
+1) Go to Postgres -> create database name
+2) Go to root project -> create .env
+   - SERVER_PORT = 4000
+   - CONNECTION_STRING = postgres://postgres:[your_password_access_database]@localhost:5432/[database_name]
+3) Go to terminal
+```sh
+$ nodemon server/server.js
+```
+
+### Post Man
+```sh
+$ http://localhost:4000/api/seed
+```
+
+# Screenshot
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/1-book-home.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/2-book-add-or-edit-form.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/3-book-search.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/4-book-delete.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/5-book-detail.png" width="100%">
