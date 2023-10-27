@@ -71,8 +71,9 @@ $ http://localhost:4000/api/seed
 ```
 
 # Screenshot
-<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/1-book-home.png" width="100%">
-<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/2-book-add-or-edit-form.png" width="100%">
-<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/3-book-search.png" width="100%">
-<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/4-book-delete.png" width="100%">
-<img src="https://github.com/dvmountain-learn/capstone-book-catalog/main/client/images/screens/5-book-detail.png" width="100%">
+
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/1-book-home.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/2-book-add-or-edit-form.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/3-book-search.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/4-book-delete.png" width="100%">
+<img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/5-book-detail.png" width="100%">
