@@ -55,7 +55,7 @@ $ cd capstone-book-catalog
 $ npm install
 ```
 
-### Preparation Before Run Server 
+#### Preparation Before Run Server 
 1) Go to Postgres -> create database name
 2) Go to root project -> create .env
    - SERVER_PORT = 4000
@@ -65,7 +65,7 @@ $ npm install
 $ nodemon server/server.js
 ```
 
-### Post Man
+#### Post Man
 ```sh
 $ http://localhost:4000/api/seed
 ```
