@@ -367,6 +367,12 @@ span {
     margin-right: 20px;
 }
 
+strong {
+    color: palevioletred;
+    font-style: italic;
+    font-size: var(--title-font);
+}
+
 #loading {
     width: 2rem;
     height: 2rem;

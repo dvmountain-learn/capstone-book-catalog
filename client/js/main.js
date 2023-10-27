@@ -19,7 +19,7 @@ function bookCard(book) {
     div.classList.add('item')
     div.innerHTML = `
         <div class="action-list">
-            <div class="action"><button class="btn-delete" onclick="deleteBook(${book.id})"><i class="fa fa-trash"></i></button></div>
+            <div class="action"><button class="btn-delete" onclick="deleteBook(${book.id}, '${book.title}')"><i class="fa fa-trash"></i></button></div>
             <div class="action"><button class="btn-edit" onclick="editBook(${book.id})"><i class="fa fa-edit"></i></button></div>
         </div>
         <a class="book-link-image" href="../client/html/book-detail.html?id=${book.id}">
@@ -71,10 +71,11 @@ function editBook(bookId) {
 }
 
 // Looking for book by id to delete from the database
-function deleteBook(bookId) {
+function deleteBook(bookId, title) {
+    // console.log(bookId, title)
     Swal.fire({
         title: "Delete",
-        text: "Are you sure you want to delete this book?",
+        html: `Are you sure you want to delete the book via the title <strong>'${title}'</strong>?`,
         type: "warning",
         showCancelButton: true,
         confirmButtonColor: 'red',
