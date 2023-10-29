@@ -13,6 +13,8 @@ const bookInfo = document.querySelector('.book-info')
 let categoryId = 0
 
 const baseUrl = `http://localhost:4000`
+const addTitle = 'Add Book Information'
+const updateTitle = 'Update Book Information'
 
 // Convert string to capitalized by word
 function capitalizeWords(strangeWords) {
@@ -145,29 +147,37 @@ updateBookBtn.addEventListener('click', updateBook)
 // Looking book catalog by id then display on form
 function getBookById() {
     let params = new URLSearchParams(document.location.search)
-    if (params.get('id') !== null) {
-        addBookBtn.style.display = 'none'
-        bookInfo.textContent = 'Update Book Information'
+    if (params.get('id') !== null && params.get('id') !== '') {
+        console.log('calling ...')
         axios.get(`${baseUrl}/api/books/${params.get('id')}`)
         .then((res) => {
             const book = res.data
             console.log(book)
-            bookId.value = book.id
-            titleText.value = book.title
-            authorText.value = book.author
-            coverImageText.value = book.cover_image
-            abstractText.value = book.abstract
-            categoryId = book.category_id
-            getCategories()
-
+            if (book === '') {
+                addForm()
+            } else {
+                addBookBtn.style.display = 'none'
+                bookInfo.textContent = updateTitle
+                bookId.value = book.id
+                titleText.value = book.title
+                authorText.value = book.author
+                coverImageText.value = book.cover_image
+                abstractText.value = book.abstract
+                categoryId = book.category_id
+                getCategories()
+            }
         }).catch((error) => {
             console.log(error.message)
         });
     } else {
-        bookInfo.textContent = 'Add Book Information'
-        updateBookBtn.style.display = 'none'
-        getCategories()
+        addForm()
     }
+}
+
+function addForm() {
+    updateBookBtn.style.display = 'none'
+    bookInfo.textContent = addTitle
+    getCategories()
 }
 
 abstractText.value = ''

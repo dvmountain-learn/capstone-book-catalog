@@ -400,6 +400,47 @@ strong {
     }
 }
 
+.page_404 {
+    background: #fff;
+    text-align: center;
+    padding-top: 100px;
+}
+  
+.page_404 img {
+    width: 50%;
+}
+  
+.four_zero_four_bg {
+    height: 400px;
+    background-image: url(https://cdn.dribbble.com/users/285475/screenshots/2083086/dribbble_1.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.four_zero_four_bg h1 {
+    font-size: 80px;
+    margin-top: -20px;
+    font-weight: 900;
+    text-align: center;
+}
+
+.four_zero_four_bg h3 {
+    font-size: 80px;
+}
+  
+.link_404 {
+    color: #fff !important;
+    padding: 10px 20px;
+    background: var(--button-color);
+    margin: 20px 0;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.constant_box_404 {
+    margin-top: -50px;
+}
+
 @media screen and (max-width: 600px) {
     :root {
         --title-font: 2.3rem;

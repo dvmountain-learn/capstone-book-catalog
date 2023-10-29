@@ -121,7 +121,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not load data from database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 
@@ -136,7 +136,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not load data from database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 
@@ -153,7 +153,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not load data from database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 
@@ -170,7 +170,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not load data from database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 
@@ -187,7 +187,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not insert data into database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 
@@ -206,7 +206,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not update data into database ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
     
@@ -220,7 +220,7 @@ module.exports = {
         })
         .catch((error) => {
             console.log(`Could not find ${id} into database for delete ${error}`)
-            res.status(400).send(error)
+            res.status(404).send(error)
         })
     },
 }
