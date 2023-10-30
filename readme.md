@@ -3,12 +3,15 @@ The “Book Catalog” is designed to “help users manage and organize their co
 
 ## Table of contents
 * [Overview](#overview)
-* [Key Features and Components](#featureandcomponent)
+* [Key Features and Components](#key-features-and-components)
 * [Technologies](#technologies)
 * [Installation](#installation)
 * [Screenshot](#screenshot)
+* [Support this repo](#support-this-repo)
+* [Social Contact](#social-contact)
+* [Conact Info](#contact-info)
   
-## Overview of the App:
+## Overview:
 
 The Book Catalog App is a web-based application designed to help users manage and organize their collection of books. 
 The app allows users to perform the following tasks:
@@ -23,7 +26,7 @@ The app allows users to perform the following tasks:
 
 ## Key Features and Components:
 
-The Book Catalog App is built using HTML/CSS for the user interface or animation and javascript uses library axios to talk with a server. I'm also using Node to create the back-end and use Postgres for database management. Some of the key features and components of the app include:
+The Book Catalog App is built using HTML/CSS for the user interface or animation and javascript uses library Axios to communicate with the server through API requests. I'm also using Node.js for express to create the back-end and use PostgreSQL for storing and managing the data. Some of the key features and components of the app include:
 
     1) Database: It has two tables categories and books that have a category_id as a reference as foreign key information in a Postgres database. Category entry is associated with field name and Book entry is associated with details such as title, author, category, abstract, added date, and cover image.
 
@@ -77,3 +80,17 @@ $ http://localhost:4000/api/seed
 <img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/3-book-search.png" width="100%">
 <img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/4-book-delete.png" width="100%">
 <img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/5-book-detail.png" width="100%">
+
+## Support this repo
+* Star this repo <img src="https://github.blog/wp-content/uploads/2020/09/github-stars-logo_Color.png" width="60">
+
+## Social Contact
+* Skype: kheang.senghort2
+* Facebook: kheang senghort
+* LinkedIn: kheang senghort
+* Telegram: 775-230-8584
+
+## Contact Info
+* Email: senghort.rupp@gmail.com
+* Tel: 775-230-8584
+
