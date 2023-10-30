@@ -82,7 +82,7 @@ $ http://localhost:4000/api/seed
 <img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/5-book-detail.png" width="100%">
 
 ## Support this repo
-* Star this repo <img src="https://github.blog/wp-content/uploads/2020/09/github-stars-logo_Color.png" width="60">
+* Star this repo <img src="https://github.blog/wp-content/uploads/2020/09/github-stars-logo_Color.png" width="30">
 
 ## Social Contact
 * Skype: kheang.senghort2
