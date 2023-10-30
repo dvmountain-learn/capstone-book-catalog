@@ -3,15 +3,15 @@ The “Book Catalog” is a web-based application designed to “help users mana
 
 ## Table of contents
 * [Features](#features)
-* [Key Features and Components](#key-features-and-components)
 * [Technologies](#technologies)
+* [Key Features and Components](#key-features-and-components)
 * [Installation](#installation)
 * [Screenshot](#screenshot)
 * [Support this repo](#support-this-repo)
 * [Social Contact](#social-contact)
 * [Conact Info](#contact-info)
   
-## Overview:
+## Features:
 
 The app allows users to perform the following tasks:
 
@@ -22,6 +22,15 @@ The app allows users to perform the following tasks:
     3) Delete Books: Books that are no longer needed in the collection can be easily removed from the catalog.
 
     4) Search Books: The app provides a search functionality that allows users to search for books by title. This feature simplifies the process of finding specific books in a large collection.
+
+## Technologies
+- HTML
+- CSS
+- Javascript
+- Google Font
+- Font Awesome
+- Node 
+- Postgres
 
 ## Key Features and Components:
 
@@ -34,15 +43,6 @@ The Book Catalog App is built using HTML/CSS for the user interface or animation
     3) Add and Update Forms: Users can interact with the app through forms that allow them to add new books and update existing book details.
 
     4) Search Functionality: The search box enables users to search for books based on their titles. As users type in the search query, the app dynamically sends a request to the server by filtering the displayed books.
-
-## Technologies
-- HTML
-- CSS
-- Javascript
-- Google Font
-- Font Awesome
-- Node 
-- Postgres
 
 # Installation
 
@@ -81,7 +81,7 @@ $ http://localhost:4000/api/seed
 <img src="https://github.com/dvmountain-learn/capstone-book-catalog/blob/main/client/images/screens/5-book-detail.png" width="100%">
 
 ## Support this repo
-* Star this repo <img src="https://github.blog/wp-content/uploads/2020/09/github-stars-logo_Color.png" width="30">
+* Star this repo <img src="https://github.blog/wp-content/uploads/2020/09/github-stars-logo_Color.png" width="20">
 
 ## Social Contact
 * Skype: kheang.senghort2
