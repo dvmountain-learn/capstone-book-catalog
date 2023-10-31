@@ -9,14 +9,11 @@ const addBookBtn = document.querySelector('#add-book-btn')
 const updateBookBtn = document.querySelector('#update-book-btn')
 const bookInfo = document.querySelector('.book-info')
 
-// Define default category id when try to update book information
-let categoryId = 0
-
 const baseUrl = `http://localhost:4000`
 const addTitle = 'Add Book Information'
 const updateTitle = 'Update Book Information'
+let categoryId = 0
 
-// Convert string to capitalized by word
 function capitalizeWords(strangeWords) {
     const words = strangeWords.split(" ")
     for (let i = 0; i < words.length; i++) {
@@ -25,7 +22,6 @@ function capitalizeWords(strangeWords) {
     return words.join(" ")   
 }
 
-// Loading categories filter by category id
 function getCategories() {
     axios.get(`${baseUrl}/api/categories`)
         .then(res => {
@@ -48,7 +44,6 @@ function getCategories() {
         });
 }
 
-// Clear form controls
 function clearForm() {
     bookId.value = ''
     titleText.value = ''
@@ -58,7 +53,6 @@ function clearForm() {
     abstractText.value = ''
 }
 
-// Create book information
 function addBook(event) {
     event.preventDefault()
     if (titleText.value === '') {
@@ -99,10 +93,8 @@ function addBook(event) {
     }
 }
 
-// Calling button add book 
 addBookBtn.addEventListener('click', addBook)
 
-// Update book information
 function updateBook(event) {
     event.preventDefault()
     if (titleText.value === '') {
@@ -124,7 +116,6 @@ function updateBook(event) {
         console.log(bookObj, bookId.value)
         axios.put(`${baseUrl}/api/books/update/${bookId.value}`, bookObj)
             .then((res) => {
-                console.log(res.data)
                 Swal.fire({
                     title: 'Update Book',
                     text: `Your book has been updated success.`,
@@ -141,10 +132,8 @@ function updateBook(event) {
     }
 }
 
-// Calling button update book
 updateBookBtn.addEventListener('click', updateBook)
 
-// Looking book catalog by id then display on form
 function getBookById() {
     let params = new URLSearchParams(document.location.search)
     if (params.get('id') !== null && params.get('id') !== '') {
@@ -152,7 +141,6 @@ function getBookById() {
         axios.get(`${baseUrl}/api/books/${params.get('id')}`)
         .then((res) => {
             const book = res.data
-            console.log(book)
             if (book === '') {
                 addForm()
             } else {
@@ -181,5 +169,4 @@ function addForm() {
 }
 
 abstractText.value = ''
-// Loading book by id 
 getBookById()

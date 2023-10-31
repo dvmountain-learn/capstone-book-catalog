@@ -3,7 +3,6 @@ const bookContainer = document.querySelector('.container')
 const baseUrl = 'http://localhost:4000'
 
 function renderBookCard(book) {
-
     const dateSet = new Date(book.added_date)
     const formatDate = dateSet.toDateString()
     const div = document.createElement('div')

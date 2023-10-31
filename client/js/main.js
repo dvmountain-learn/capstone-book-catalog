@@ -2,10 +2,10 @@
 const bookList = document.querySelector('.book-list');
 const searching = document.querySelector('#searching')
 const loader = document.querySelector("#loading")
+const emptyDiv = document.createElement('div')
 
 const baseUrl = 'http://localhost:4000'
 
-// Display the book list
 function displayBooks(books) {
     bookList.innerHTML = ''
     for (const book of books) {
@@ -13,7 +13,6 @@ function displayBooks(books) {
     }
 }
 
-// Create each book of card
 function bookCard(book) {
     const div = document.createElement('div')
     div.classList.add('item')
@@ -36,21 +35,27 @@ function bookCard(book) {
     bookList.appendChild(div)
 }
 
-// Showing loading
+function emptyCard() {
+    emptyDiv.classList.add('empty-result')
+    emptyDiv.innerHTML = `
+        <h1>Search Not Found</h1>
+        <p>We're sorry, we can't looking for book by this title. Please try to another title again!</p>
+        <br><br>
+    `
+    bookList.appendChild(emptyDiv)
+}
+
 function showLoading() {
     loader.classList.add("display");
-    // to stop loading after some time
     setTimeout(() => {
         loader.classList.remove("display");
     }, 5000);
 }
 
-// Hiding loading 
 function hideLoading() {
     loader.classList.remove("display");
 }
 
-// Fetch all books from the database
 function getBooks() {
     showLoading()
     axios.get(`${baseUrl}/api/books`)
@@ -64,15 +69,12 @@ function getBooks() {
         });
 }
 
-// Looking for book by id to edit from the database
 function editBook(bookId) {
     console.log(bookId)
     window.location.href = `../client/html/book-form.html?id=${bookId}`
 }
 
-// Looking for book by id to delete from the database
 function deleteBook(bookId, title) {
-    // console.log(bookId, title)
     Swal.fire({
         title: "Delete",
         html: `Are you sure you want to delete the book via the title <strong>'${title}'</strong>?`,
@@ -102,15 +104,19 @@ function deleteBook(bookId, title) {
       });
 }
 
-// Search book from database
 searching.addEventListener('keyup', (e) => {
-    console.log(searching.value)
     const searchQuery = searching.value.toLowerCase()
     if (searchQuery !== '') {
         axios.get(`${baseUrl}/api/books/search/${searchQuery}`)
         .then((res) => {
             const books = res.data
-            displayBooks(books)
+            console.log(books.length, books)
+            if (books.length > 0) {
+                displayBooks(books)
+            } else {
+                bookList.innerHTML = ''
+                emptyCard()
+            }
         })
         .catch((error) => {
             console.log(error.message)
@@ -120,7 +126,6 @@ searching.addEventListener('keyup', (e) => {
     }
 });
 
-// Loading DOM in javascript
 getBooks()
 
 
