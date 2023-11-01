@@ -87,9 +87,7 @@ $ http://localhost:4000/api/seed
 * Skype: kheang.senghort2
 * Facebook: kheang senghort
 * LinkedIn: kheang senghort
-* Telegram: 775-230-8584
 
 ## Contact Info
 * Email: senghort.rupp@gmail.com
-* Tel: 775-230-8584
 
