@@ -1,5 +1,5 @@
 # Capstone: The Book Catalog App
-The “Book Catalog” is a web-based application designed to “help users manage and organize their collection of books”
+The “Book Catalog” is a web-based application designed to “help users manage and organize their collection of books”.
 
 ## Table of contents
 * [Features](#features)
